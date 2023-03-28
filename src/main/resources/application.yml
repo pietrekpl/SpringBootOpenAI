@@ -1,0 +1,35 @@
+openai:
+  base:
+    url: https://api.openai.com
+
+  #Please provide your own api key :
+    api-key:
+  chat:
+    chat-full-path-url: https://api.openai.com/v1/completions
+    chat-model: text-davinci-003
+    max-tokens: 800
+    temperature: 0.0
+    top-p: 1.0
+    authorization: Authorization
+    bearer: 'Bearer '
+    media-type: application/json
+
+
+  whisper:
+    audio-model: whisper-1
+    create-transcription-url: /v1/audio/transcriptions
+    create-translation-url: v1/audio/translations
+---
+#multipart file size extension, by default is 1MB
+server:
+  tomcat:
+    max-http-form-post-size: 250000000
+    max-swallow-size: 250000000
+---
+spring:
+  servlet:
+    multipart:
+      maxFileSize: 25MB
+      maxRequestSize: 25MB
+
+
