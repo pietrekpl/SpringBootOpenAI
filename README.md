@@ -28,11 +28,13 @@ AI gives back the url to generated image
 WHISPER - TRANSCRIPTION Navigate to : http://localhost:8080/api/transcription
 
 POST In body, check form-data, then choose file from your machine in format of : mp3, mp4, mpeg, mpga, m4a, wav, or webm.
+Max file size is 25MB
 
 AI gives in return transcripted text of audio file
 ----------------------------------------------------------------------------------------------------------------------------------
 
 WHISPER - TRANSLATION Navigate to : http://localhost:8080/api/translation
+Max file size is 25MB
 
 POST In body, check form-data, then choose file from your machine in format of : mp3, mp4, mpeg, mpga, m4a, wav, or webm.
 
