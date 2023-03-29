@@ -3,6 +3,7 @@ package com.example.springbootopenai.whisper.controller;
 import com.example.springbootopenai.whisper.model.WhisperResponse;
 import com.example.springbootopenai.whisper.model.WhisperUserRequest;
 import com.example.springbootopenai.whisper.service.WhisperService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,14 +20,14 @@ public class WhisperController {
     private final WhisperService whisperService;
 
     @PostMapping("/transcription")
-    public WhisperResponse createTranscription(@ModelAttribute WhisperUserRequest whisperUserRequest) {
+    public WhisperResponse createTranscription(@Valid @ModelAttribute WhisperUserRequest whisperUserRequest) {
         log.info("Request:  {}", whisperUserRequest);
         log.info("{}",whisperService.createTranscription(whisperUserRequest));
         return whisperService.createTranscription(whisperUserRequest);
     }
 
     @PostMapping("/translation")
-    public WhisperResponse createTranslation(@ModelAttribute WhisperUserRequest whisperUserRequest) {
+    public WhisperResponse createTranslation(@Valid @ModelAttribute WhisperUserRequest whisperUserRequest) {
         log.info("Request:  {}", whisperUserRequest);
         log.info("{}",whisperService.createTranslation(whisperUserRequest));
         return whisperService.createTranslation(whisperUserRequest);
