@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidSize {
 
-    String message() default "Invalid value. This is not a valid size.";
+    String message() default "Invalid value. Available sizes are : 256x256, 512x512 or 1024x1024.";
 
     Class<?>[] groups() default {};
 
