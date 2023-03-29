@@ -1,5 +1,6 @@
 package com.example.springbootopenai.whisper.model;
 
+import com.example.springbootopenai.whisper.validation.ValidFileSize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,5 +15,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class WhisperUserRequest implements Serializable {
 
+    @ValidFileSize
     private MultipartFile file;
 }
