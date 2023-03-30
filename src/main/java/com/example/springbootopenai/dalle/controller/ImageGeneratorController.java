@@ -22,9 +22,8 @@ public class ImageGeneratorController {
 
     @PostMapping("/generate")
     public ResponseEntity<GenerateImageResponse> generateImage(@Valid @RequestBody final GenerateImageRequest request) {
-        log.info("Received request : {}", request);
         final GenerateImageResponse response = imageGeneratorService.generateImage(request);
-        log.info("Generated Image : {}", response);
+        log.info("Generated Image : {}", response.getData());
         return ResponseEntity.ok(response);
     }
 

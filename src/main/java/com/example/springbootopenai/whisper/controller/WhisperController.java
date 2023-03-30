@@ -21,14 +21,12 @@ public class WhisperController {
 
     @PostMapping("/transcription")
     public WhisperResponse createTranscription(@Valid @ModelAttribute WhisperUserRequest whisperUserRequest) {
-        log.info("Request:  {}", whisperUserRequest);
         log.info("{}",whisperService.createTranscription(whisperUserRequest));
         return whisperService.createTranscription(whisperUserRequest);
     }
 
     @PostMapping("/translation")
     public WhisperResponse createTranslation(@Valid @ModelAttribute WhisperUserRequest whisperUserRequest) {
-        log.info("Request:  {}", whisperUserRequest);
         log.info("{}",whisperService.createTranslation(whisperUserRequest));
         return whisperService.createTranslation(whisperUserRequest);
     }

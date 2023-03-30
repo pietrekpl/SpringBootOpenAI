@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class WhisperConfiguration {
 
-    @Value("${openai.base.api-key}")
+    @Value("${openai.base.apikey}")
     private String apiKey;
 
     @Value("${openai.whisper.audio-model}")

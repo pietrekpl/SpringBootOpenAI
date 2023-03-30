@@ -22,7 +22,6 @@ public class FileExtensionValidator implements ConstraintValidator<ValidFileExte
         boolean endsWith = false;
         for (String extension : ALLOWED_FILE_EXTENSIONS) {
             if (Objects.requireNonNull(value.getOriginalFilename()).endsWith(extension)) {
-                log.info("extensions : {}", extension);
                 endsWith = true;
             }
         }

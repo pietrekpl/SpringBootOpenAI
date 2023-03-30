@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ImageGeneratorConfig {
 
-    @Value("${openai.base.api-key}")
+    @Value("${openai.base.apikey}")
     private String apiKey;
 
     @Bean

@@ -3,7 +3,7 @@ openai:
     url: https://api.openai.com
 
   #Please provide your own api key :
-    api-key:
+    apikey:
   chat:
     chat-full-path-url: https://api.openai.com/v1/completions
     chat-model: text-davinci-003
