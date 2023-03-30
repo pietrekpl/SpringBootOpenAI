@@ -1,33 +1,41 @@
 package com.example.springbootopenai.whisper.validation;
 
-import jakarta.validation.ConstraintValidatorContext;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.mock.web.MockMultipartFile;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FileExtensionValidatorTest {
 
-    private final static List<String> ALLOWED_FILE_EXTENSIONS = Arrays.asList(".mp3", ".mp4", ".mpeg", ".mpga", ".m4a", ".wav", ".webm");
-    private final FileExtensionValidator fileExtensionValidator = new FileExtensionValidator();
-    private final ConstraintValidatorContext constraintValidatorContext = Mockito.mock(ConstraintValidatorContext.class);
+    private final FileExtensionValidator validator = new FileExtensionValidator();
 
     @Test
-    public void testValidFileExtension() {
-        MockMultipartFile mockFile = new MockMultipartFile("test.mp3", new byte[0]);
-        assertTrue(fileExtensionValidator.isValid(mockFile, constraintValidatorContext));
+    void isValid_withValidFileExtension_returnsTrue() {
+        // Arrange
+        String fileName = "test.mp3";
+        byte[] content = new byte[] { 0x00 };
+        MockMultipartFile file = new MockMultipartFile(fileName, fileName, "audio/mpeg", content);
+
+        // Act
+        boolean isValid = validator.isValid(file, null);
+
+        // Assert
+        assertTrue(isValid);
     }
 
     @Test
-    public void testInvalidFileExtension() {
-        MockMultipartFile mockFile = new MockMultipartFile("test.pdf", new byte[0]);
-        assertFalse(fileExtensionValidator.isValid(mockFile, constraintValidatorContext));
+    void isValid_withInvalidFileExtension_returnsFalse() {
+        // Arrange
+        String fileName = "test.txt";
+        byte[] content = new byte[] { 0x00 };
+        MockMultipartFile file = new MockMultipartFile(fileName, fileName, "text/plain", content);
+
+        // Act
+        boolean isValid = validator.isValid(file, null);
+
+        // Assert
+        assertFalse(isValid);
     }
 
 
