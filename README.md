@@ -39,3 +39,7 @@ Max file size is 25MB
 POST In body, check form-data, then choose file from your machine in format of : mp3, mp4, mpeg, mpga, m4a, wav, or webm.
 
 AI gives in return translated into english text from non-english audio file
+
+/////////////////////////////////////////////////////////////
+Dockerized version of app is kept under :
+https://hub.docker.com/repository/docker/pludynia/openai_api_springboot/general
